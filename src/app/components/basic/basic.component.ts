@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import TileLayer from 'ol/layer/Tile';
 import Map from 'ol/Map';
 import * as olProj from 'ol/proj';
-import OSM from 'ol/source/OSM';
+import XYZSource from 'ol/source/XYZ';
 import View from 'ol/View';
 
 @Component({
@@ -11,7 +11,7 @@ import View from 'ol/View';
   styleUrls: ['./basic.component.scss']
 })
 export class BasicComponent implements OnInit {
-  map: any;
+  map = new Map({});
 
   constructor() { }
 
@@ -20,7 +20,9 @@ export class BasicComponent implements OnInit {
       target: 'map',
       layers: [
         new TileLayer({
-          source: new OSM()
+          source: new XYZSource({
+            url: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg'
+          })
         })
       ],
       view: new View({

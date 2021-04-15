@@ -1,10 +1,6 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
-            nzCollapsible
-            nzWidth="256px"
-            nzBreakpoint="md"
-            [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null">
+  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
     <div class="sidebar-logo">
       <a href="https://openlayers.org/" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/OpenLayers_logo.svg" alt="logo">
@@ -12,10 +8,16 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Opciones" nzIcon="dashboard">
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="/basic">Basics</a>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Vector Data">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/basic">Basico</a>
+            <a routerLink="/renderJSON">Rendering GeoJSON</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/dragDrop">Drag and drop</a>
           </li>
         </ul>
       </li>
@@ -25,10 +27,7 @@
     <nz-header>
       <div class="app-header">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <i class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></i>
+          <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
         </span>
       </div>
     </nz-header>
