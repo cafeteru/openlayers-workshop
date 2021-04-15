@@ -1,6 +1,7 @@
 import 'ol/ol.css';
 
 import { Component, OnInit } from '@angular/core';
+// @ts-ignore
 import sync from 'ol-hashed';
 import GeoJSON from 'ol/format/GeoJSON';
 import DragAndDrop from 'ol/interaction/DragAndDrop';
@@ -18,7 +19,8 @@ import View from 'ol/View';
 export class DragDropComponent implements OnInit {
   map = new Map({});
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.map = new Map({
@@ -30,7 +32,7 @@ export class DragDropComponent implements OnInit {
     });
     sync(this.map);
     const source = new VectorSource();
-    const layer = new VectorLayer({ source });
+    const layer = new VectorLayer({source});
     this.map.addLayer(layer);
     this.map.addInteraction(new DragAndDrop({
       source,
