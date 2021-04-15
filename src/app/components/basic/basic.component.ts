@@ -11,7 +11,7 @@ import View from 'ol/View';
   styleUrls: ['./basic.component.scss']
 })
 export class BasicComponent implements OnInit {
-  map: Map;
+  map: any;
 
   constructor() { }
 
@@ -24,8 +24,8 @@ export class BasicComponent implements OnInit {
         })
       ],
       view: new View({
-        center: olProj.fromLonLat([7.0785, 51.4614]),
-        zoom: 5
+        center: olProj.fromLonLat([0, 0]),
+        zoom: 2
       })
     });
   }
