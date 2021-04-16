@@ -8,8 +8,15 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-menu-item nzMatchRouter>
-        <a routerLink="/basic">Basics</a>
+      <li nz-menu-item nz-tooltip nzTooltipPlacement="right" (click)="download()"
+        [nzTooltipTitle]="isCollapsed ? 'Descargar datos de prueba' : ''">
+        <i nz-icon nzType="database" nzTheme="outline"></i>
+        <span>Descargar datos de prueba</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Basics' : ''"
+        routerLink="/basic">
+        <i nz-icon nzType="home" nzTheme="outline"></i>
+        <span>Basics</span>
       </li>
       <li nz-submenu nzOpen nzTitle="Vector Data" nzIcon="dashboard">
         <ul>
