@@ -3,16 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { BasicComponent } from './basic/basic.component';
 import { ComponentsRoutingModule } from './components-routing.module';
-import { RenderJsonComponent } from './render-json/render-json.component';
-import { DragDropComponent } from './drag-drop/drag-drop.component';
 
 
 
 @NgModule({
   declarations: [
-    BasicComponent,
-    RenderJsonComponent,
-    DragDropComponent,
+    BasicComponent
   ],
   imports: [
     ComponentsRoutingModule,
