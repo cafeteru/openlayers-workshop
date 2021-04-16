@@ -6,6 +6,7 @@ import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { ModifyingFeaturesComponent } from './modifying-features/modifying-features.component';
 import { DrawingNewFeaturesComponent } from './drawing-new-features/drawing-new-features.component';
 import { SnappingComponent } from './snapping/snapping.component';
+import { DownloadingFeaturesComponent } from './downloading-features/downloading-features.component';
 
 
 
@@ -16,6 +17,7 @@ import { SnappingComponent } from './snapping/snapping.component';
     ModifyingFeaturesComponent,
     DrawingNewFeaturesComponent,
     SnappingComponent,
+    DownloadingFeaturesComponent,
   ],
   imports: [
     VectorDataRoutingModule,

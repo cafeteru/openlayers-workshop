@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DownloadingFeaturesComponent } from './downloading-features/downloading-features.component';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { DrawingNewFeaturesComponent } from './drawing-new-features/drawing-new-features.component';
 import { ModifyingFeaturesComponent } from './modifying-features/modifying-features.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
     {
         path: 'snapping',
         component: SnappingComponent
+    },
+    {
+        path: 'downloading',
+        component: DownloadingFeaturesComponent
     }
 ];
 
