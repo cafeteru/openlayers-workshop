@@ -4,6 +4,7 @@ import { VectorDataRoutingModule } from './vector-data-routing.module';
 import { RenderJsonComponent } from './render-json/render-json.component';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { ModifyingFeaturesComponent } from './modifying-features/modifying-features.component';
+import { DrawingNewFeaturesComponent } from './drawing-new-features/drawing-new-features.component';
 
 
 
@@ -12,6 +13,7 @@ import { ModifyingFeaturesComponent } from './modifying-features/modifying-featu
     RenderJsonComponent,
     DragDropComponent,
     ModifyingFeaturesComponent,
+    DrawingNewFeaturesComponent,
   ],
   imports: [
     VectorDataRoutingModule,

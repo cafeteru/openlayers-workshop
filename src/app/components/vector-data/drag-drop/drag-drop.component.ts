@@ -1,8 +1,7 @@
 import 'ol/ol.css';
 
 import { Component, OnInit } from '@angular/core';
-// @ts-ignore
-import sync from 'ol-hashed';
+
 import GeoJSON from 'ol/format/GeoJSON';
 import DragAndDrop from 'ol/interaction/DragAndDrop';
 import VectorLayer from 'ol/layer/Vector';
@@ -30,7 +29,6 @@ export class DragDropComponent implements OnInit {
         zoom: 2
       })
     });
-    sync(this.map);
     const source = new VectorSource();
     const layer = new VectorLayer({source});
     this.map.addLayer(layer);

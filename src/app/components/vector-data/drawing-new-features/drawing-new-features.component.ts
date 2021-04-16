@@ -3,16 +3,17 @@ import GeoJSON from 'ol/format/GeoJSON';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import VectorSource from 'ol/source/Vector';
-import View from 'ol/View';
-import Modify from 'ol/interaction/Modify';
+import View from 'ol/View'
 import DragAndDrop from 'ol/interaction/DragAndDrop';
+import Draw from 'ol/interaction/Draw';
+import GeometryType from 'ol/geom/GeometryType';
 
 @Component({
-  selector: 'app-modifying-features',
-  templateUrl: './modifying-features.component.html',
-  styleUrls: ['./modifying-features.component.scss']
+  selector: 'app-drawing-new-features',
+  templateUrl: './drawing-new-features.component.html',
+  styleUrls: ['./drawing-new-features.component.scss']
 })
-export class ModifyingFeaturesComponent implements OnInit, OnDestroy {
+export class DrawingNewFeaturesComponent implements OnInit, OnDestroy {
 
   map = new Map({});
   layer: VectorLayer;
@@ -21,7 +22,7 @@ export class ModifyingFeaturesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.map = new Map({
-      target: 'map-container3',
+      target: 'map-container4',
       view: new View({
         center: [0, 0],
         zoom: 2
@@ -34,12 +35,14 @@ export class ModifyingFeaturesComponent implements OnInit, OnDestroy {
       source,
       formatConstructors: [GeoJSON as any]
     }));
-    this.map.addInteraction(new Modify({
+    this.map.addInteraction(new Draw({
+      type: GeometryType.POLYGON,
       source
     }));
   }
 
   ngOnDestroy(): void {
+    this.map.removeLayer(this.layer);
   }
 
 }
