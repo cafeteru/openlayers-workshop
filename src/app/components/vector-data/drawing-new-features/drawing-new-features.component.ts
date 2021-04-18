@@ -3,7 +3,7 @@ import GeoJSON from 'ol/format/GeoJSON';
 import VectorLayer from 'ol/layer/Vector';
 import Map from 'ol/Map';
 import VectorSource from 'ol/source/Vector';
-import View from 'ol/View'
+import View from 'ol/View';
 import DragAndDrop from 'ol/interaction/DragAndDrop';
 import Draw from 'ol/interaction/Draw';
 import GeometryType from 'ol/geom/GeometryType';
@@ -18,7 +18,8 @@ export class DrawingNewFeaturesComponent implements OnInit, OnDestroy {
   map = new Map({});
   layer: VectorLayer;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.map = new Map({
@@ -29,7 +30,7 @@ export class DrawingNewFeaturesComponent implements OnInit, OnDestroy {
       })
     });
     const source = new VectorSource();
-    this.layer = new VectorLayer({ source });
+    this.layer = new VectorLayer({source});
     this.map.addLayer(this.layer);
     this.map.addInteraction(new DragAndDrop({
       source,
