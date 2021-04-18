@@ -6,38 +6,43 @@ import { DrawingNewFeaturesComponent } from './drawing-new-features/drawing-new-
 import { ModifyingFeaturesComponent } from './modifying-features/modifying-features.component';
 import { RenderJsonComponent } from './render-json/render-json.component';
 import { SnappingComponent } from './snapping/snapping.component';
+import { MakingLookNiceComponent } from './making-look-nice/making-look-nice.component';
 
 
 const routes: Routes = [
-    {
-        path: 'renderJSON',
-        component: RenderJsonComponent,
-    },
-    {
-        path: 'dragDrop',
-        component: DragDropComponent,
-    },
-    {
-        path: 'modifyingFeatures',
-        component: ModifyingFeaturesComponent
-    },
-    {
-        path: 'drawingNewFeatures',
-        component: DrawingNewFeaturesComponent
-    },
-    {
-        path: 'snapping',
-        component: SnappingComponent
-    },
-    {
-        path: 'downloading',
-        component: DownloadingFeaturesComponent
-    }
+  {
+    path: 'renderJSON',
+    component: RenderJsonComponent,
+  },
+  {
+    path: 'dragDrop',
+    component: DragDropComponent,
+  },
+  {
+    path: 'modifyingFeatures',
+    component: ModifyingFeaturesComponent
+  },
+  {
+    path: 'drawingNewFeatures',
+    component: DrawingNewFeaturesComponent
+  },
+  {
+    path: 'snapping',
+    component: SnappingComponent
+  },
+  {
+    path: 'downloading',
+    component: DownloadingFeaturesComponent
+  },
+  {
+    path: 'makingLookNice',
+    component: MakingLookNiceComponent
+  }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class VectorDataRoutingModule {
 }

@@ -7,6 +7,7 @@ import { ModifyingFeaturesComponent } from './modifying-features/modifying-featu
 import { DrawingNewFeaturesComponent } from './drawing-new-features/drawing-new-features.component';
 import { SnappingComponent } from './snapping/snapping.component';
 import { DownloadingFeaturesComponent } from './downloading-features/downloading-features.component';
+import { MakingLookNiceComponent } from './making-look-nice/making-look-nice.component';
 
 
 
@@ -18,6 +19,7 @@ import { DownloadingFeaturesComponent } from './downloading-features/downloading
     DrawingNewFeaturesComponent,
     SnappingComponent,
     DownloadingFeaturesComponent,
+    MakingLookNiceComponent,
   ],
   imports: [
     VectorDataRoutingModule,

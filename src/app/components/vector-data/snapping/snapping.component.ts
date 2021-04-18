@@ -18,7 +18,6 @@ import Draw from 'ol/interaction/Draw';
   styleUrls: ['./snapping.component.scss']
 })
 export class SnappingComponent implements OnInit {
-
   map = new Map({});
 
   constructor() {
