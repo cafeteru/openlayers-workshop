@@ -9,8 +9,11 @@ const routes: Routes = [
         component: BasicComponent,
     },
     {
-        path: 'basic',
-        component: BasicComponent,
+        path: 'vectorData',
+        loadChildren: () =>
+            import('./vector-data/vector-data.module').then(
+                (v) => v.VectorDataModule
+            ),
     },
 ];
 

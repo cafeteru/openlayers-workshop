@@ -8,7 +8,7 @@ import { ComponentsRoutingModule } from './components-routing.module';
 
 @NgModule({
   declarations: [
-    BasicComponent,
+    BasicComponent
   ],
   imports: [
     ComponentsRoutingModule,

@@ -1,10 +1,6 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
-            nzCollapsible
-            nzWidth="256px"
-            nzBreakpoint="md"
-            [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null">
+  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
     <div class="sidebar-logo">
       <a href="https://openlayers.org/" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/OpenLayers_logo.svg" alt="logo">
@@ -12,10 +8,38 @@
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Opciones" nzIcon="dashboard">
+      <li nz-menu-item nz-tooltip nzTooltipPlacement="right" (click)="download()"
+        [nzTooltipTitle]="isCollapsed ? 'Descargar datos de prueba' : ''">
+        <i nz-icon nzType="database" nzTheme="outline"></i>
+        <span>Descargar datos de prueba</span>
+      </li>
+      <li nz-menu-item nz-tooltip nzTooltipPlacement="right" [nzTooltipTitle]="isCollapsed ? 'Basics' : ''"
+        routerLink="/basic">
+        <i nz-icon nzType="home" nzTheme="outline"></i>
+        <span>Basics</span>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Vector Data" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/basic">Basico</a>
+            <a routerLink="/vectorData/renderJSON">Rendering GeoJSON</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/vectorData/dragDrop">Drag and drop</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/vectorData/modifyingFeatures">Modifying features</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/vectorData/drawingNewFeatures">Drawing new features</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/vectorData/snapping">Snapping</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/vectorData/downloading">Downloading features</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/vectorData/makingLookNice">Making it look nice</a>
           </li>
         </ul>
       </li>
@@ -25,10 +49,7 @@
     <nz-header>
       <div class="app-header">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <i class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></i>
+          <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
         </span>
       </div>
     </nz-header>
