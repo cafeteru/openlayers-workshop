@@ -18,7 +18,7 @@
         <i nz-icon nzType="home" nzTheme="outline"></i>
         <span>Basics</span>
       </li>
-      <li nz-submenu nzOpen nzTitle="Vector Data" nzIcon="dashboard">
+      <li nz-submenu nzTitle="Vector Data" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/vectorData/renderJSON">Rendering GeoJSON</a>
@@ -43,7 +43,7 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Mobile Maps and Sensors" nzIcon="mobile">
+      <li nz-submenu nzTitle="Mobile Maps and Sensors" nzIcon="mobile">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/mobileMapSensors/mobileMap">A mobile map</a>
@@ -53,6 +53,13 @@
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/mobileMapSensors/compass">Compass</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="WebGL Rendering" nzIcon="global">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/webGL/mapSetup">Map setup</a>
           </li>
         </ul>
       </li>

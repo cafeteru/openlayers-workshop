@@ -5,7 +5,6 @@ import { BasicComponent } from './basic/basic.component';
 import { ComponentsRoutingModule } from './components-routing.module';
 
 
-
 @NgModule({
   declarations: [
     BasicComponent

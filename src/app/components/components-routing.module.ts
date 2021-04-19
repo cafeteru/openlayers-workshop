@@ -22,6 +22,13 @@ const routes: Routes = [
             (m) => m.MobileMapSensorsModule
           ),
     },
+    {
+        path: 'webGL',
+        loadChildren: () =>
+          import('./web-gl/web-gl.module').then(
+            (w) => w.WebGLModule
+          ),
+    },
 ];
 
 @NgModule({
