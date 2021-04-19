@@ -11,9 +11,16 @@ const routes: Routes = [
     {
         path: 'vectorData',
         loadChildren: () =>
-            import('./vector-data/vector-data.module').then(
-                (v) => v.VectorDataModule
-            ),
+          import('./vector-data/vector-data.module').then(
+            (v) => v.VectorDataModule
+          ),
+    },
+    {
+        path: 'mobileMapSensors',
+        loadChildren: () =>
+          import('./mobile-map-sensors/mobile-map-sensors.module').then(
+            (m) => m.MobileMapSensorsModule
+          ),
     },
 ];
 
