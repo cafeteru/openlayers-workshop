@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VectorTileComponent } from './vector-tile.component';
+import { MapSetupComponent } from './map-setup.component';
 
-describe('VectorTileComponent', () => {
-  let component: VectorTileComponent;
-  let fixture: ComponentFixture<VectorTileComponent>;
+describe('MapSetupComponent', () => {
+  let component: MapSetupComponent;
+  let fixture: ComponentFixture<MapSetupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VectorTileComponent ]
+      declarations: [ MapSetupComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VectorTileComponent);
+    fixture = TestBed.createComponent(MapSetupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
