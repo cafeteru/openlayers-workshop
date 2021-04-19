@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RenderingPointsComponent } from './rendering-points.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('RenderingPointsComponent', () => {
   let component: RenderingPointsComponent;
@@ -8,7 +9,10 @@ describe('RenderingPointsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RenderingPointsComponent ]
+      imports: [
+        HttpClientTestingModule
+      ],
+      declarations: [RenderingPointsComponent]
     })
     .compileComponents();
   });

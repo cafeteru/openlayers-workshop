@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MapSetupComponent } from './map-setup.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('MapSetupComponent', () => {
   let component: MapSetupComponent;
@@ -8,7 +9,10 @@ describe('MapSetupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MapSetupComponent ]
+      imports: [
+        HttpClientTestingModule
+      ],
+      declarations: [MapSetupComponent]
     })
     .compileComponents();
   });
