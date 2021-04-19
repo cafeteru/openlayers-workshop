@@ -29,6 +29,13 @@ const routes: Routes = [
             (w) => w.WebGLModule
           ),
     },
+    {
+        path: 'vectorTileMapbox',
+        loadChildren: () =>
+          import('./vector-tile-mapbox/vector-tile-mapbox.module').then(
+            (m) => m.VectorTileMapboxModule
+          ),
+    },
 ];
 
 @NgModule({
