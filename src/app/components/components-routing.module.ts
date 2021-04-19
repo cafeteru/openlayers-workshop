@@ -33,7 +33,7 @@ const routes: Routes = [
         path: 'vectorTileMapbox',
         loadChildren: () =>
           import('./vector-tile-mapbox/vector-tile-mapbox.module').then(
-            (m) => m.VectorTileMapboxModule
+            (v) => v.VectorTileMapboxModule
           ),
     },
     {
