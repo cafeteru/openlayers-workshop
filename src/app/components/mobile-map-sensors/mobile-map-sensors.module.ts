@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MobileMapComponent } from './mobile-map/mobile-map.component';
 import { MobileMapSensorsRoutingModule } from './mobile-map-sensors-routing.module';
+import { GeolocationComponent } from './geolocation/geolocation.component';
 
 
 @NgModule({
   declarations: [
-    MobileMapComponent
+    MobileMapComponent,
+    GeolocationComponent
   ],
   imports: [
     MobileMapSensorsRoutingModule,

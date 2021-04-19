@@ -11,12 +11,13 @@ import { fromLonLat } from 'ol/proj';
   styleUrls: ['./mobile-map.component.scss']
 })
 export class MobileMapComponent implements OnInit {
+  private map: Map;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    const map = new Map({
+    this.map = new Map({
       target: 'map-container-mobile1',
       layers: [
         new TileLayer({
