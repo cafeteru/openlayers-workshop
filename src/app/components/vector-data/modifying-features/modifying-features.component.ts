@@ -13,9 +13,8 @@ import DragAndDrop from 'ol/interaction/DragAndDrop';
   styleUrls: ['./modifying-features.component.scss']
 })
 export class ModifyingFeaturesComponent implements OnInit, OnDestroy {
-
-  map = new Map({});
-  layer: VectorLayer;
+  private map = new Map({});
+  private layer: VectorLayer;
 
   constructor() { }
 

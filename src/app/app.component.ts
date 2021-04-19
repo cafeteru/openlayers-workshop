@@ -10,19 +10,15 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent implements OnDestroy {
   isCollapsed = false;
-  susbcriptions: Subscription[] = [];
+  subscriptions: Subscription[] = [];
 
   constructor(
     private httpClient: HttpClient
   ) {
   }
 
-  toggleCollapsed(): void {
-    this.isCollapsed = !this.isCollapsed;
-  }
-
   download(): void {
-    this.susbcriptions.push(
+    this.subscriptions.push(
       this.httpClient.get('assets/data/countries.json', { responseType: 'text' })
         .subscribe(data => {
           const blob = new Blob([data], { type: 'text/json;charset=utf-8' });
@@ -32,6 +28,6 @@ export class AppComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.susbcriptions.forEach(x => x.unsubscribe());
+    this.subscriptions.forEach(x => x.unsubscribe());
   }
 }

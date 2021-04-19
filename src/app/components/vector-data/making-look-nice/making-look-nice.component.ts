@@ -8,7 +8,7 @@ import GeoJSON from 'ol/format/GeoJSON';
 import Draw from 'ol/interaction/Draw';
 import GeometryType from 'ol/geom/GeometryType';
 import Snap from 'ol/interaction/Snap';
-import {Style, Fill, Stroke} from 'ol/style';
+import { Fill, Stroke, Style } from 'ol/style';
 
 
 @Component({
@@ -17,7 +17,7 @@ import {Style, Fill, Stroke} from 'ol/style';
   styleUrls: ['./making-look-nice.component.scss']
 })
 export class MakingLookNiceComponent implements OnInit {
-  map = new Map({});
+  private map = new Map({});
 
   constructor() {
   }

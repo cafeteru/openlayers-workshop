@@ -17,8 +17,8 @@ import * as fileSaver from 'file-saver';
   styleUrls: ['./downloading-features.component.scss']
 })
 export class DownloadingFeaturesComponent implements OnInit {
-  map = new Map({});
-  source: VectorSource;
+  private map = new Map({});
+  private source: VectorSource;
 
   constructor() {
   }
