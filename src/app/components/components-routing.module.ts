@@ -30,10 +30,10 @@ const routes: Routes = [
           ),
     },
     {
-        path: 'mapbox',
+        path: 'vectorTileMapbox',
         loadChildren: () =>
-          import('./mapbox/mapbox.module').then(
-            (m) => m.MapboxModule
+          import('./vector-tile-mapbox/vector-tile-mapbox.module').then(
+            (m) => m.VectorTileMapboxModule
           ),
     },
 ];
