@@ -36,6 +36,13 @@ const routes: Routes = [
             (m) => m.VectorTileMapboxModule
           ),
     },
+    {
+        path: 'raster',
+        loadChildren: () =>
+          import('./raster/raster-routing.module').then(
+            (r) => r.RasterRoutingModule
+          ),
+    },
 ];
 
 @NgModule({
