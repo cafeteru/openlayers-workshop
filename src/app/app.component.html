@@ -1,6 +1,6 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
-    [nzTrigger]="null">
+  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="280px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
     <div class="sidebar-logo">
       <a href="https://openlayers.org/" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/OpenLayers_logo.svg" alt="logo">
@@ -9,7 +9,7 @@
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       <li nz-menu-item nz-tooltip nzTooltipPlacement="right" (click)="download()"
-        [nzTooltipTitle]="isCollapsed ? 'Descargar datos de prueba' : ''">
+          [nzTooltipTitle]="isCollapsed ? 'Descargar datos de prueba' : ''">
         <i nz-icon nzType="database" nzTheme="outline"></i>
         <span>Descargar datos de prueba</span>
       </li>
@@ -63,6 +63,19 @@
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/webGL/rendering">Rendering points</a>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu nzTitle="Vector tiles and Mapbox styles" nzIcon="heat-map">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/mapbox/vectorTile">The VectorTile layer</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/mapbox/mapSetup">Making things look bright</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/mapbox/mapSetup">Interact with VectorTile features</a>
           </li>
         </ul>
       </li>

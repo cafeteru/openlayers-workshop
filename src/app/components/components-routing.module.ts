@@ -29,6 +29,13 @@ const routes: Routes = [
             (w) => w.WebGLModule
           ),
     },
+    {
+        path: 'mapbox',
+        loadChildren: () =>
+          import('./mapbox/mapbox.module').then(
+            (m) => m.MapboxModule
+          ),
+    },
 ];
 
 @NgModule({
