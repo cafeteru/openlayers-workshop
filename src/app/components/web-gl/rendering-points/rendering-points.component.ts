@@ -1,20 +1,21 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import 'ol/ol.css';
-import { fromLonLat } from 'ol/proj';
+import { Subscription } from 'rxjs';
 import { Map, View } from 'ol';
-import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
 import { Stamen, Vector as VectorSource } from 'ol/source';
+import { HttpClient } from '@angular/common/http';
+import { Tile as TileLayer, WebGLPoints as WebGLPointsLayer } from 'ol/layer';
+import { fromLonLat } from 'ol/proj';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
-import { HttpClient } from '@angular/common/http';
-import { Subscription } from 'rxjs';
+import { SymbolType } from 'ol/style/LiteralStyle';
+
 
 @Component({
-  selector: 'app-map-setup',
-  templateUrl: './map-setup.component.html',
-  styleUrls: ['./map-setup.component.scss']
+  selector: 'app-rendering-points',
+  templateUrl: './rendering-points.component.html',
+  styleUrls: ['./rendering-points.component.scss']
 })
-export class MapSetupComponent implements OnInit, OnDestroy {
+export class RenderingPointsComponent implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
   private map: Map;
   private source: VectorSource;
@@ -36,15 +37,22 @@ export class MapSetupComponent implements OnInit, OnDestroy {
   private createMap(): void {
     this.source = new VectorSource();
     this.map = new Map({
-      target: 'map-container-gl',
+      target: 'map-container-gl2',
       layers: [
         new TileLayer({
           source: new Stamen({
             layer: 'toner'
           })
         }),
-        new VectorLayer({
-          source: this.source
+        new WebGLPointsLayer({
+          source: this.source,
+          style: {
+            symbol: {
+              symbolType: SymbolType.CIRCLE,
+              size: ['+', ['*', ['clamp', ['*', ['get', 'mass'], 1 / 20000], 0, 1], 18], 8],
+              color: 'rgba(255,0,0,0.5)'
+            }
+          }
         })
       ],
       view: new View({

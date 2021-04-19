@@ -16,7 +16,7 @@ import View from 'ol/View';
   styleUrls: ['./drag-drop.component.scss']
 })
 export class DragDropComponent implements OnInit {
-  map = new Map({});
+  private map = new Map({});
 
   constructor() {
   }

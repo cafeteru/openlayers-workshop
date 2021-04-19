@@ -14,7 +14,7 @@ import View from 'ol/View';
   styleUrls: ['./render-json.component.scss']
 })
 export class RenderJsonComponent implements OnInit {
-  map = new Map({});
+  private map = new Map({});
 
   constructor() { }
 

@@ -14,9 +14,8 @@ import GeometryType from 'ol/geom/GeometryType';
   styleUrls: ['./drawing-new-features.component.scss']
 })
 export class DrawingNewFeaturesComponent implements OnInit, OnDestroy {
-
-  map = new Map({});
-  layer: VectorLayer;
+  private map = new Map({});
+  private layer: VectorLayer;
 
   constructor() {
   }

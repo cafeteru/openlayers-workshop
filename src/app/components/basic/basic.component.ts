@@ -11,7 +11,7 @@ import View from 'ol/View';
   styleUrls: ['./basic.component.scss']
 })
 export class BasicComponent implements OnInit {
-  map = new Map({});
+  private map = new Map({});
 
   constructor() { }
 
