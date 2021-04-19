@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Map, View } from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSMSource from 'ol/source/OSM';
@@ -15,11 +15,16 @@ import Point from 'ol/geom/Point';
   templateUrl: './geolocation.component.html',
   styleUrls: ['./geolocation.component.scss']
 })
-export class GeolocationComponent implements OnInit {
+export class GeolocationComponent implements OnInit, OnDestroy {
   private map: Map;
   private source: VectorSource;
+  private id: number;
 
   constructor() {
+  }
+
+  ngOnDestroy(): void {
+    navigator.geolocation.clearWatch(this.id);
   }
 
   ngOnInit(): void {
@@ -39,7 +44,7 @@ export class GeolocationComponent implements OnInit {
     this.source = new VectorSource();
     const layer = new VectorLayer({source: this.source});
     this.map.addLayer(layer);
-    this.showUserPosition(this.source);
+    this.id = this.createSubscriptionUserPosition(this.source);
   }
 
   moveToPosition(): void {
@@ -51,11 +56,11 @@ export class GeolocationComponent implements OnInit {
     }
   }
 
-  private showUserPosition(source: VectorSource): void {
+  private createSubscriptionUserPosition(source: VectorSource): number {
     const options = {
       enableHighAccuracy: true
     };
-    navigator.geolocation.watchPosition(
+    return navigator.geolocation.watchPosition(
       (pos: GeolocationPosition) => {
         const coords = [pos.coords.longitude, pos.coords.latitude];
         const accuracy = circular(coords, pos.coords.accuracy);

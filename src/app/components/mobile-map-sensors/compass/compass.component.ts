@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Map, View } from 'ol';
 import VectorSource from 'ol/source/Vector';
 import TileLayer from 'ol/layer/Tile';
@@ -16,11 +16,17 @@ import Kompas from 'kompas';
   templateUrl: './compass.component.html',
   styleUrls: ['./compass.component.scss']
 })
-export class CompassComponent implements OnInit {
+export class CompassComponent implements OnInit, OnDestroy {
   private map: Map;
   private source: VectorSource;
+  private compass: Kompas;
+  private id: number;
 
   constructor() {
+  }
+
+  ngOnDestroy(): void {
+    navigator.geolocation.clearWatch(this.id);
   }
 
   ngOnInit(): void {
@@ -41,7 +47,16 @@ export class CompassComponent implements OnInit {
     const layer = new VectorLayer({source: this.source});
     this.addStyleLayer(layer);
     this.map.addLayer(layer);
-    this.showUserPosition(this.source);
+    this.id = this.createSubscriptionUserPosition(this.source);
+  }
+
+  moveToPosition(): void {
+    if (!this.source.isEmpty()) {
+      this.map.getView().fit(this.source.getExtent(), {
+        maxZoom: 18,
+        duration: 500
+      });
+    }
   }
 
   private addStyleLayer(layer: VectorLayer): void {
@@ -55,28 +70,19 @@ export class CompassComponent implements OnInit {
         rotateWithView: true
       })
     });
-    const compass = new Kompas();
-    compass.watch();
-    compass.on('heading', (heading) => {
+    this.compass = new Kompas();
+    this.compass.watch();
+    this.compass.on('heading', (heading) => {
       style.getImage().setRotation(Math.PI / 180 * heading);
     });
     layer.setStyle(style);
   }
 
-  moveToPosition(): void {
-    if (!this.source.isEmpty()) {
-      this.map.getView().fit(this.source.getExtent(), {
-        maxZoom: 18,
-        duration: 500
-      });
-    }
-  }
-
-  private showUserPosition(source: VectorSource): void {
+  private createSubscriptionUserPosition(source: VectorSource): number {
     const options = {
       enableHighAccuracy: true
     };
-    navigator.geolocation.watchPosition(
+    return navigator.geolocation.watchPosition(
       (pos: GeolocationPosition) => {
         const coords = [pos.coords.longitude, pos.coords.latitude];
         const accuracy = circular(coords, pos.coords.accuracy);
